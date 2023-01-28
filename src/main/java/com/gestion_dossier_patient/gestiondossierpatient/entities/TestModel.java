@@ -1,4 +1,4 @@
-package com.gestion_dossier_patient.gestiondossierpatient.model;
+package com.gestion_dossier_patient.gestiondossierpatient.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -7,15 +7,12 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-
-
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "test")
 public class TestModel implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

@@ -1,6 +1,6 @@
 package com.gestion_dossier_patient.gestiondossierpatient.services;
 
-import com.gestion_dossier_patient.gestiondossierpatient.model.TestModel;
+import com.gestion_dossier_patient.gestiondossierpatient.entities.TestModel;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
