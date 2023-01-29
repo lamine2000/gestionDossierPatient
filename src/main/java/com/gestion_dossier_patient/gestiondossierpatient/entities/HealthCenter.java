@@ -17,9 +17,9 @@ public class HealthCenter implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    int numberOfBeds;
+    private int numberOfBeds;
 
-    String address;
+    private String address;
 
-    String coordinates;
+    private String coordinates;
 }

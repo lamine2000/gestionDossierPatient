@@ -31,9 +31,6 @@ public class Patient implements Serializable {
 
     private String emergencyNumber;
 
-    @Enumerated(EnumType.STRING)
-    private MaritalStatus maritalStatus;
-
     private String bloodGroup;
 
     private String allergies;

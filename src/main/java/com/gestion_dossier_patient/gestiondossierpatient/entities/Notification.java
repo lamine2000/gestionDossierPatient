@@ -1,5 +1,6 @@
 package com.gestion_dossier_patient.gestiondossierpatient.entities;
 
+import com.gestion_dossier_patient.gestiondossierpatient.entities.enumarations.EnumNotifiationStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,5 +25,6 @@ public class Notification implements Serializable {
 
     private String message;
 
+    @Enumerated(EnumType.STRING)
     private EnumNotifiationStatus status;
 }

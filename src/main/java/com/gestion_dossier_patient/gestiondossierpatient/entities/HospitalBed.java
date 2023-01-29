@@ -1,5 +1,6 @@
 package com.gestion_dossier_patient.gestiondossierpatient.entities;
 
+import com.gestion_dossier_patient.gestiondossierpatient.entities.enumarations.EnumHospitalBedStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +18,8 @@ public class HospitalBed implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private HospitalBedStatus status;
+    @Enumerated(EnumType.STRING)
+    private EnumHospitalBedStatus status;
 
     @ManyToOne
     private HealthCenter healthCenter;

@@ -1,9 +1,7 @@
 package com.gestion_dossier_patient.gestiondossierpatient.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.gestion_dossier_patient.gestiondossierpatient.entities.enumarations.EnumMaritalStatus;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,4 +26,6 @@ public class User implements Serializable {
     private String phone;
     private String address;
     private Date dateOfBirth;
+    @Enumerated(EnumType.STRING)
+    private EnumMaritalStatus maritalStatus;
 }

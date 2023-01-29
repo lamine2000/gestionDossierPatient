@@ -26,6 +26,6 @@ public class MedicalFileEntry implements Serializable {
 
     private String title;
 
-    private String description;
+    private String content;
 
 }
