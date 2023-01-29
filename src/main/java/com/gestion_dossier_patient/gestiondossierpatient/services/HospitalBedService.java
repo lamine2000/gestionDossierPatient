@@ -8,7 +8,7 @@ import jakarta.persistence.PersistenceContext;
 import java.util.List;
 
 @ApplicationScoped
-public class HosptalBedServce {
+public class HospitalBedService {
     @PersistenceContext
     private EntityManager entityManager;
 
