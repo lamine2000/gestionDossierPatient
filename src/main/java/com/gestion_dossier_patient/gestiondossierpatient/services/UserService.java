@@ -4,6 +4,7 @@ import com.gestion_dossier_patient.gestiondossierpatient.entities.User;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
 import java.util.List;
 
@@ -22,11 +23,13 @@ public class UserService {
         return entityManager.find(User.class, id);
     }
 
+    @Transactional
     public User create(User user) {
         entityManager.persist(user);
         return user;
     }
 
+    @Transactional
     public User update(Long id, User user) {
         User existingUser = entityManager.find(User.class, id);
 
@@ -38,6 +41,7 @@ public class UserService {
         return entityManager.merge(existingUser);
     }
 
+    @Transactional
     public boolean delete(Long id) {
         User existingUser = entityManager.find(User.class, id);
 

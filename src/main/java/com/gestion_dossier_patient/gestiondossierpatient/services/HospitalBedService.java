@@ -4,6 +4,7 @@ import com.gestion_dossier_patient.gestiondossierpatient.entities.HospitalBed;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
 import java.util.List;
 
@@ -22,11 +23,13 @@ public class HospitalBedService {
         return entityManager.find(HospitalBed.class, id);
     }
 
+    @Transactional
     public HospitalBed create(HospitalBed hospitalBed) {
         entityManager.persist(hospitalBed);
         return hospitalBed;
     }
 
+    @Transactional
     public HospitalBed update(Long id, HospitalBed hospitalBed) {
         HospitalBed existingHospitalBed = entityManager.find(HospitalBed.class, id);
 
@@ -38,6 +41,7 @@ public class HospitalBedService {
         return entityManager.merge(existingHospitalBed);
     }
 
+    @Transactional
     public boolean delete(Long id) {
         HospitalBed existingHospitalBed = entityManager.find(HospitalBed.class, id);
 

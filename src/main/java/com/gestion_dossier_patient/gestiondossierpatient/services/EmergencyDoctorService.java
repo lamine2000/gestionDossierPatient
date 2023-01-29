@@ -4,6 +4,7 @@ import com.gestion_dossier_patient.gestiondossierpatient.entities.EmergencyDocto
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
 import java.util.List;
 
@@ -22,11 +23,13 @@ public class EmergencyDoctorService {
         return entityManager.find(EmergencyDoctor.class, id);
     }
 
+    @Transactional
     public EmergencyDoctor create(EmergencyDoctor emergencyDoctor) {
         entityManager.persist(emergencyDoctor);
         return emergencyDoctor;
     }
 
+    @Transactional
     public EmergencyDoctor update(Long id, EmergencyDoctor emergencyDoctor) {
         EmergencyDoctor existingEmergencyDoctor = entityManager.find(EmergencyDoctor.class, id);
 
@@ -38,6 +41,7 @@ public class EmergencyDoctorService {
         return entityManager.merge(existingEmergencyDoctor);
     }
 
+    @Transactional
     public boolean delete(Long id) {
         EmergencyDoctor existingEmergencyDoctor = entityManager.find(EmergencyDoctor.class, id);
 

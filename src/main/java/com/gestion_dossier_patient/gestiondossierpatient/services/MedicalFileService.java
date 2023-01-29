@@ -4,6 +4,7 @@ import com.gestion_dossier_patient.gestiondossierpatient.entities.MedicalFile;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
 import java.util.List;
 
@@ -22,11 +23,13 @@ public class MedicalFileService {
         return entityManager.find(MedicalFile.class, id);
     }
 
+    @Transactional
     public MedicalFile create(MedicalFile medicalFile) {
         entityManager.persist(medicalFile);
         return medicalFile;
     }
 
+    @Transactional
     public MedicalFile update(Long id, MedicalFile medicalFile) {
         MedicalFile existingMedicalFile = entityManager.find(MedicalFile.class, id);
 
@@ -38,6 +41,7 @@ public class MedicalFileService {
         return entityManager.merge(existingMedicalFile);
     }
 
+    @Transactional
     public boolean delete(Long id) {
         MedicalFile existingMedicalFile = entityManager.find(MedicalFile.class, id);
 

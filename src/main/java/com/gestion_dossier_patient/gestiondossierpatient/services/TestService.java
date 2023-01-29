@@ -13,6 +13,7 @@ public class TestService {
     @PersistenceContext
     private EntityManager entityManager;
 
+    @Transactional
     public void saveOneTest(){
         entityManager.persist(new TestModel("Lamine", "Gueye"));
     }

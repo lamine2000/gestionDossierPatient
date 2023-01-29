@@ -4,6 +4,7 @@ import com.gestion_dossier_patient.gestiondossierpatient.entities.Invoice;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
 import java.util.List;
 
@@ -22,11 +23,13 @@ public class InvoiceService {
         return entityManager.find(Invoice.class, id);
     }
 
+    @Transactional
     public Invoice create(Invoice invoice) {
         entityManager.persist(invoice);
         return invoice;
     }
 
+    @Transactional
     public Invoice update(Long id, Invoice invoice) {
         Invoice existingInvoice = entityManager.find(Invoice.class, id);
 
@@ -38,6 +41,7 @@ public class InvoiceService {
         return entityManager.merge(existingInvoice);
     }
 
+    @Transactional
     public boolean delete(Long id) {
         Invoice existingInvoice = entityManager.find(Invoice.class, id);
 

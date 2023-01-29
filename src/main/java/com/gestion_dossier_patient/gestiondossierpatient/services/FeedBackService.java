@@ -4,6 +4,7 @@ import com.gestion_dossier_patient.gestiondossierpatient.entities.FeedBack;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
 import java.util.List;
 
@@ -22,11 +23,13 @@ public class FeedBackService {
         return entityManager.find(FeedBack.class, id);
     }
 
+    @Transactional
     public FeedBack create(FeedBack feedBack) {
         entityManager.persist(feedBack);
         return feedBack;
     }
 
+    @Transactional
     public FeedBack update(Long id, FeedBack feedBack) {
         FeedBack existingFeedBack = entityManager.find(FeedBack.class, id);
 
@@ -38,6 +41,7 @@ public class FeedBackService {
         return entityManager.merge(existingFeedBack);
     }
 
+    @Transactional
     public boolean delete(Long id) {
         FeedBack existingFeedBack = entityManager.find(FeedBack.class, id);
 

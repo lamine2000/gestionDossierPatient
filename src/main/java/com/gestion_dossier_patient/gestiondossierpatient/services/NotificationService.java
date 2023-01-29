@@ -4,6 +4,7 @@ import com.gestion_dossier_patient.gestiondossierpatient.entities.Notification;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
 import java.util.List;
 
@@ -22,11 +23,13 @@ public class NotificationService {
         return entityManager.find(Notification.class, id);
     }
 
+    @Transactional
     public Notification create(Notification notification) {
         entityManager.persist(notification);
         return notification;
     }
 
+    @Transactional
     public Notification update(Long id, Notification notification) {
         Notification existingNotification = entityManager.find(Notification.class, id);
 
@@ -38,6 +41,7 @@ public class NotificationService {
         return entityManager.merge(existingNotification);
     }
 
+    @Transactional
     public boolean delete(Long id) {
         Notification existingNotification = entityManager.find(Notification.class, id);
 

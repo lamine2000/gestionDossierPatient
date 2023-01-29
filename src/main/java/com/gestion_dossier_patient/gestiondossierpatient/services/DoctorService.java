@@ -4,6 +4,7 @@ import com.gestion_dossier_patient.gestiondossierpatient.entities.Doctor;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 
 import java.util.List;
 
@@ -22,11 +23,13 @@ public class DoctorService {
         return entityManager.find(Doctor.class, id);
     }
 
+    @Transactional
     public Doctor create(Doctor doctor) {
         entityManager.persist(doctor);
         return doctor;
     }
 
+    @Transactional
     public Doctor update(Long id, Doctor doctor) {
         Doctor existingDoctor = entityManager.find(Doctor.class, id);
 
@@ -38,6 +41,7 @@ public class DoctorService {
         return entityManager.merge(existingDoctor);
     }
 
+    @Transactional
     public boolean delete(Long id) {
         Doctor existingDoctor = entityManager.find(Doctor.class, id);
 

@@ -11,7 +11,7 @@ import com.gestion_dossier_patient.gestiondossierpatient.services.DoctorSpeciali
 
 import java.util.List;
 
-@Path("/doctorSpecialities")
+@Path("/doctor_specialities")
 public class DoctorSpecialityResource {
     @Inject
     private DoctorSpecialityService doctorSpecialityService;

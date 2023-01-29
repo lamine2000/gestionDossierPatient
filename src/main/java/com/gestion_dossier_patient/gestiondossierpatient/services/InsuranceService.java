@@ -4,6 +4,7 @@ import com.gestion_dossier_patient.gestiondossierpatient.entities.Insurance;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 
 import java.util.List;
 
@@ -22,11 +23,13 @@ public class InsuranceService {
         return entityManager.find(Insurance.class, id);
     }
 
+    @Transactional
     public Insurance create(Insurance insurance) {
         entityManager.persist(insurance);
         return insurance;
     }
 
+    @Transactional
     public Insurance update(Long id, Insurance insurance) {
         Insurance existingInsurance = entityManager.find(Insurance.class, id);
 
@@ -38,6 +41,7 @@ public class InsuranceService {
         return entityManager.merge(existingInsurance);
     }
 
+    @Transactional
     public boolean delete(Long id) {
         Insurance existingInsurance = entityManager.find(Insurance.class, id);
 
