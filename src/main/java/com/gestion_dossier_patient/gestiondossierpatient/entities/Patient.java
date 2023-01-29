@@ -17,6 +17,12 @@ public class Patient implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @OneToOne
+    private User user;
+
+    @ManyToOne
+    private Insurance insurance;
+
     private String cniTutor;
 
     private int height;

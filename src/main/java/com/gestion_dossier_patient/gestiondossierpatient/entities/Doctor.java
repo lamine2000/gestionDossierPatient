@@ -17,4 +17,10 @@ public class Doctor implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @OneToOne
+    private User user;
+
+    @ManyToOne
+    private DoctorSpeciality speciality;
 }

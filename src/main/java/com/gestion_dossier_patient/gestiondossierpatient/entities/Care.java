@@ -18,6 +18,12 @@ public class Care implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @ManyToOne
+    private Patient patient;
+
+    @ManyToOne
+    private Invoice invoice;
+
     private long price;
 
     private BigDecimal description;

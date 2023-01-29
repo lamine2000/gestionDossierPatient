@@ -17,4 +17,7 @@ public class MedicalFile implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @OneToOne
+    private Patient patient;
 }

@@ -17,5 +17,8 @@ public class FeedBack implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    String content;
+    @ManyToOne
+    private Patient madeBy;
+
+    private String content;
 }

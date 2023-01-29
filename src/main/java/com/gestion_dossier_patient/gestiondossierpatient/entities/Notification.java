@@ -17,6 +17,9 @@ public class Notification implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @ManyToOne
+    private Doctor sender;
+
     private String title;
 
     private String message;

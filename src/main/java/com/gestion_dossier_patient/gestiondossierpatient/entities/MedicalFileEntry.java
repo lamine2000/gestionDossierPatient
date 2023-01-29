@@ -19,6 +19,9 @@ public class MedicalFileEntry implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @ManyToOne
+    private MedicalFile medicalFile;
+
     private Date createdAt;
 
     private String title;

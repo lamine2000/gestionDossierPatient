@@ -1,9 +1,6 @@
 package com.gestion_dossier_patient.gestiondossierpatient.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,5 +19,11 @@ public class AccessCompleteMedicalFileRequest implements Serializable {
     private long id;
 
     private Date createdAt;
+
+    @ManyToOne
+    private Doctor madeBy;
+
+    @ManyToOne
+    private Patient receiver;
 }
 
