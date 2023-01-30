@@ -1,5 +1,6 @@
 package com.gestion_dossier_patient.gestiondossierpatient.entities;
 
+import com.gestion_dossier_patient.gestiondossierpatient.security.AuthoritiesConstants;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,4 +20,6 @@ public class EmergencyDoctor implements Serializable {
 
     @OneToOne
     private User user;
+
+    private static final String role = AuthoritiesConstants.EMERGENCY_DOCTOR;
 }
