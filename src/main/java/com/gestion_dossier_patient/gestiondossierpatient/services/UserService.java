@@ -135,7 +135,6 @@ public class UserService {
         final String username = eu.getUsername();
         final String password = eu.getPassword();
         final String decodedPayload = username.concat(":").concat(password);
-        System.err.println(decodedPayload);
 
         if(eu.getPassword().equals(user.getPassword()))
             return Base64.getEncoder()
